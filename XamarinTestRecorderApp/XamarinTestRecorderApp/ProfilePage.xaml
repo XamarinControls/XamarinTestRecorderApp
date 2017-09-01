@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinTestRecorderApp.ProfilePage">
+    <Grid BackgroundColor="#F3F2F3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Image Aspect="AspectFill" Source="profilebackground" HorizontalOptions="FillAndExpand"/>
+            <Image Source="details" VerticalOptions="End" Margin="0,80,0,0"/>
+            <Entry Placeholder="Search Talks..." VerticalOptions="Start" PlaceholderColor="#F3F2F3" FontSize="16" TextColor="#F3F2F3" BackgroundColor="Transparent" HorizontalOptions="Fill" Margin="20,10" TextChanged="Entry_TextChanged"/>
+        </Grid>
+        <ScrollView Grid.Row="1">
+            <ListView x:Name="listView" Margin="20,0" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Spacing="2" Margin="10,5">
+                                <Label Text="{Binding Title}" TextColor="#363333" FontSize="Medium" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Event}" TextColor="#363333" FontSize="Default" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Time}" TextColor="#363333" FontSize="Default" HorizontalOptions="Start"/>
+                                <Label Text="More Info" TextColor="#ff1c6c" FontAttributes="Bold" FontSize="Default" HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </Grid>
+</ContentPage>
